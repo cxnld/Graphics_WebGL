@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+
+	</head>
+
+	<body>
+		<canvas id="gl-canvas" width="512" height="512">
+		Oops ... your browser doesn't support the HTML5 canvas element
+		</canvas>
+
+		<br>
+
+		<h3>LeftArrow to move left</h3>
+		<h3>RightArrow to move right</h3>
+		<h3>SpaceBar to shoot</h3>
+		<h3>Only 5 bullets can fly at once</h3>
+
+		<script id="vertex-shader" type="x-shader/x-vertex">
+			attribute vec4 vPosition;
+			void main() {
+			    gl_Position = vPosition;
+			}
+		</script>
+
+		<!-- Cannon -->
+		<script id="fragment-shader" type="x-shader/x-fragment">
+			precision mediump float;
+			void main() {
+			    gl_FragColor = vec4( 0.0, 0.0, 0.0, 0.8 );
+			}
+		</script>
+
+		<!-- Bullet -->
+		<script id="fragment-shader2" type="x-shader/x-fragment">
+			precision mediump float;
+			void main() {
+			    gl_FragColor = vec4( 0.0, 0.0, 0.0, 1.0 );
+			}
+		</script>
+
+		<!-- Alien -->
+		<script id="fragment-shader3" type="x-shader/x-fragment">
+			precision mediump float;
+			void main() {
+			    gl_FragColor = vec4( 1.0, 0.0, 0.0, 0.8 );
+			}
+		</script>		
+
+		<script type="text/javascript" src="../Common/webgl-utils.js"></script>
+		<script type="text/javascript" src="../Common/initShaders.js"></script>
+		<script type="text/javascript" src="../Common/MV.js"></script>
+		<script type="text/javascript" src="spaceinvaders.js"></script>
+
+	</body>
+
+</html>
